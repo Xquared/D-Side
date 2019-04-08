@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <title>D-Side</title>
+  <style>
+   body {
+text-align:center;
+font-family: 'Quicksand', sans-serif;
+display:block;
+margin: 10% 0;
+}
+  </style>
+</head>
+<body>
+ <h1>D-Side</h1>
+ <form>
+  Side 1:
+  <input type="text" id="side1" value="" paceholder="" style="text-align:center">
+  <br><br>
+  Side 2:
+  <input type="text" id="side2" value="" style="text-align:center">
+  <br><br>
+  Side 3:
+  <input type="text" id="side3" value="" style="text-align:center">
+  <br><br>
+  Side 4:
+  <input type="text" id="side4" value="" style="text-align:center">
+  <br><br>
+  Side 5:
+  <input type="text" id="side5" value="" style="text-align:center">
+  <br><br>
+  Side 6:
+  <input type="text" id="side6" value="" style="text-align:center">
+  <br><br>
+
+</form>
+
+<button onclick="myVar = setInterval(rolling, .1)">Roll</button>
+   <button onclick="clearInterval(myVar)">Land</button>
+  <p>Roll : <span id="roll"></span></p>
+  <p>Result : <span id="result"></span></p>
+<button onclick="clearInterval(myVar); rolling()">Roll Once</button>
+
+<script>
+var px1 = localStorage.getItem('face1')
+    document.getElementById("side1").placeholder = `${px1}`;
+var px2 = localStorage.getItem('face2')
+    document.getElementById("side2").placeholder = `${px2}`;
+var px3 = localStorage.getItem('face3')
+    document.getElementById("side3").placeholder = `${px3}`; 
+var px4 = localStorage.getItem('face4')
+    document.getElementById("side4").placeholder = `${px4}`;
+var px5 = localStorage.getItem('face5')
+    document.getElementById("side5").placeholder = `${px5}`;
+var px6 = localStorage.getItem('face6')
+    document.getElementById("side6").placeholder = `${px6}`;
+
+document.getElementById("side1").addEventListener("keyup", myFunction1);
+
+function myFunction1() {
+    var s1 = document.getElementById("side1").value;
+    var sx1 = localStorage.setItem("face1", `${side1.value}`);
+    
+};
+
+document.getElementById("side2").addEventListener("keyup", myFunction2);
+
+function myFunction2() {
+    var s2 = document.getElementById("side2").value;
+    var sx2 = localStorage.setItem("face2", `${side2.value}`);
+
+};
+
+document.getElementById("side3").addEventListener("keyup", myFunction3);
+
+function myFunction3() {
+    var s3 = document.getElementById("side3").value;
+    var sx3 = localStorage.setItem("face3", `${side3.value}`);
+
+};
+
+document.getElementById("side4").addEventListener("keyup", myFunction4);
+
+function myFunction4() {
+    var s4 = document.getElementById("side4").value;
+    var sx4 = localStorage.setItem("face4", `${side4.value}`);
+
+};
+
+document.getElementById("side5").addEventListener("keyup", myFunction5);
+
+function myFunction5() {
+    var s5 = document.getElementById("side5").value;
+    var sx5 = localStorage.setItem("face5", `${side5.value}`);
+
+};
+
+document.getElementById("side6").addEventListener("keyup", myFunction6);
+
+function myFunction6() {
+    var s6 = document.getElementById("side6").value;
+    var sx6 = localStorage.setItem("face6", `${side6.value}`);
+
+};
+
+var min = 1;
+var max = 6;
+
+
+function dice(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+var b;
+
+function rolling (){
+var a = dice(min,max);
+switch (a) {
+    case 1:
+        var b = localStorage.getItem("face1");
+        break;
+    case 2:
+        var b = localStorage.getItem("face2");
+        break;
+    case 3:
+        var b = localStorage.getItem("face3");
+        break;
+    case 4:
+        var b = localStorage.getItem("face4");
+        break;
+    case 5:
+        var b = localStorage.getItem("face5");
+        break;
+    case 6:
+        var b = localStorage.getItem("face6");
+        break;
+    };
+document.getElementById("roll").innerHTML = a;
+document.getElementById("result").innerHTML = b;
+}
+</script>
+</body>
+</html>
